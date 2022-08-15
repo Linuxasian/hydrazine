@@ -40,7 +40,7 @@ function Flow() {
     options["color"] = options.color || "picton";
     options[
       "className"
-    ] = `bg-gradient-to-r bg-shark-500 border-${options.color} border border-dashed text-gray-200 font-bold text-xs`;
+    ] = `bg-gradient-to-r bg-shark-500 border-${options.color} border text-gray-200 font-bold text-xs`;
     setNodes((nodes: any) => {
       return [...nodes, options];
     });
@@ -152,7 +152,7 @@ function Flow() {
       var field = nodeFields[i];
       final.push(
         <>
-          <div className="mt-2">
+          <div className="mt-2 uppercase">
             <h3 className="font-semibold">{field.$name}</h3>
             <input
               onChange={(e) => {
@@ -184,7 +184,7 @@ function Flow() {
                 setNodes(unique);
                 updateFieldComponent();
               }}
-              className={`p-3 opacity-90 bg-shark-400 border-dashed border-picton  shadow-sm border-2 rounded-lg w-full`}
+              className={`p-3 opacity-90 bg-shark-400  border-picton shadow-sm border-b-2 rounded-t w-full`}
               value={field.$value}
               placeholder={field.$placeholder}
             ></input>
@@ -727,7 +727,7 @@ function Flow() {
                       <h3 className="font-semibold">Unique Key</h3>
                       <input
                         disabled
-                        className={`p-3 opacity-90 bg-shark-400 border-dashed border-picton shadow-sm border-2 rounded-lg w-full`}
+                        className={`p-3 opacity-90 bg-shark-400 border-picton shadow-sm border-2 rounded-lg w-full`}
                         value={rightUniqueId}
                       ></input>
                     </div>
@@ -737,32 +737,32 @@ function Flow() {
                   {/* <div className="border border-dashed border-shark-300"></div> */}
                   <button
                     onClick={exportCode}
-                    className={`shadow shadow-picton bg-picton rounded-lg font-bold w-full p-3 text-white`}
+                    className={`shadow bg-picton font-bold w-full p-3 text-white`}
                   >
                     Export
                   </button>
                   <div className="space-y-2 w-full mt-3">
                     <button
                       onClick={saveLocalCopy}
-                      className={`shadow shadow-shark-400 bg-shark-400 rounded-lg font-bold w-full p-3 text-white`}
+                      className={`shadow shadow-shark-400 bg-shark-400 font-bold w-full p-3 text-white`}
                     >
                       Save Local Copy
                     </button>
                     <input type="file" onChange={localFileChange} style={{ "display": "none" }} ref={fileInput} />
                     <button
                       onClick={localClick}
-                      className={`shadow shadow-shark-400 bg-shark-400 rounded-lg font-bold w-full p-3 text-white`}
+                      className={`shadow shadow-shark-400 bg-shark-400 font-bold w-full p-3 text-white`}
                     >
                       Load Project
                     </button>
                     <button
                       onClick={exportCode}
-                      className={`shadow shadow-shark-400 bg-shark-400 rounded-lg font-bold w-full p-3 text-white`}
+                      className={`shadow shadow-shark-400 bg-shark-400 font-bold w-full p-3 text-white`}
                     >
                       Global Settings
                     </button>
                     {
-                      fields.length > 0 ? <div className="border border-dashed border-shark-300 mb-1 mt-1"></div> : false
+                      fields.length > 0 ? <div className="border border-shark-300 mb-1 mt-1"></div> : false
                     }
                     {fields.map((item, index) => {
                       return <div key={index}>{item}</div>;

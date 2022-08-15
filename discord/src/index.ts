@@ -49,11 +49,13 @@ if (config.$cinfo) {
   }
 }
 
+console.log(config.$cinfo)
 if (config.$cinfo) {
   for (let i = 0; i < config.$cinfo.$onInitListeners.length; i++) {
     const event = config.$cinfo.$onInitListeners[i]
     const callbacks = event.$actions || []
 
+    console.log(event.$type)
     switch (event.$type) {
       case 'text_command': {
         client.on('ready', () => {

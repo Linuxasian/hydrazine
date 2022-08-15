@@ -19,20 +19,40 @@
   "$cinfo": {
     "$onInitListeners": [
       {
-        "$type": "on_client_ready",
+        "$type": "text_command",
         "$conditions": {
-          "$equals": []
+          "$equals": [
+            {
+              "caseSensitive": false
+            }
+          ]
         },
         "$actions": [
           {
-            "$value": "games lol",
-            "$callbacks": [],
-            "$type": "set_presence",
-            "$name": "name",
-            "$placeholder": "Created With Hydrazine.",
-            "type_$value": "PLAYING",
-            "type_$name": "type",
-            "type_$placeholder": "PLAYING"
+            "$type": "if_statement",
+            "$name": "With",
+            "$callbacks": [
+              {
+                "$type": "send_meme_embed",
+                "$fields": [
+                  {
+                    "$type": "string",
+                    "$name": "UserId",
+                    "$placeholder": "$AUTHOR_ID",
+                    "$value": ""
+                  }
+                ],
+                "$actions": [
+                  {
+                    "$type": "send_meme_embed",
+                    "$value": "",
+                    "$callbacks": [null]
+                  }
+                ]
+              }
+            ],
+            "$placeholder": "$BOTNAME has started",
+            "$value": "$PREFIXmeme"
           }
         ]
       }

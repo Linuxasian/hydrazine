@@ -25,7 +25,7 @@ class HydroActionBuilder {
           switch ((tinySource?.$cinfo || {}).$action || null) {
             case 'if_statement': {
               return {
-                $match: tinySource.$cinfo.$fields[0].$match,
+                $match: tinySource?.$cinfo?.$fields[0]?.$value,
                 $with: tinySource.$cinfo.$fields[0].$with,
                 caseSensitive: false,
               }
